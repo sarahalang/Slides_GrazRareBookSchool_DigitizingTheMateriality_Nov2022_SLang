@@ -1,0 +1,496 @@
+
+%------------------------------------------------------------------------------
+\begin{frame}{Names}
+  A name is not a person
+but text referring to an „entity“ which can also be described with other methods.
+
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{textual references: \texttt{<rs>}}
+        generic referring string = any phrase which refers to a person or place, e.g. ‘the girl you mentioned’, ‘my husband’\dots
+      \end{block}
+
+      \begin{alertblock}{\texttt{<name>}}
+        any lexical item recognized as a proper name e.g. ‘Siegfried Sassoon’ , ‘Calais’, ‘John Doe’ \dots
+      \end{alertblock}
+
+      \begin{exampleblock}{\texttt{<persName>}, \texttt{<placeName>}, \texttt{<orgName>}}
+       ‘syntactic sugar’ for \texttt{<name type="person">} etc. 
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+
+      \metroset{block=fill}
+
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+  \end{columns}
+\end{frame}
+
+
+: 
+ - 
+: 
+A rich set of elements for the components of such nominal expressions, e.g. \texttt{<surname>}, \texttt{<forename>}, \texttt{<geogName>}, \texttt{<geogFeat>} etc.
+
+\begin{description}
+\item[<person>] referred to and identified e.g. by a <persName>
+\item[<place>] referred to and identified e.g. by a <placeName>
+\item[<org>] referred to and identified e.g. by a <orgName>
+\end{description}
+
+\begin{description}
+     \item[@key] refers to an identifcator whose schema is defined externally
+     \item[@ref] refers to an identifier which can be explicitely with Xpointer $\to$ internal: \#identificator, external: complete URI (\protect\url{http://viaf.org/\dots})
+     \item[@xml:id] as the identifier of an entity describing element in a TEI file
+\end{description}
+
+described by:
+generally: state
+or if you want to be more specific:
+can change over time: state
+usually don‘t change over time: trait
+or even more specific:
+faith, langKnowledge (language knowledge), langKnown (language known), nationality, sex, age (age), socecStatus (socio-economic status), occupation, residence (residence), affiliation (affiliation), education, floruit, birth, death, relation
+and a bit outside of these: event
+
+
+@role, @age, @sex
+persName (personal name)
+faith, langKnowledge (language knowledge), langKnown (language known), nationality, sex, age (age), socecStatus (socio-economic status), occupation, residence (residence), affiliation (affiliation), education, floruit
+birth, death
+relation
+trait, state, event
+
+%------------------------------------------------------------------------------
+\begin{frame}{Blocks}
+  Three different block environments are pre-defined and may be styled with an
+  optional background color.
+
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+
+      \metroset{block=fill}
+
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+  \end{columns}
+\end{frame}
+Normalisation, GND, norm data
+FOAF
+Wikidata-ID (?)
+
+placeName, geogName 
+settlement, bloc, region, country, district 
+location, climate, population, relation, event, terrain 
+state, trait
+note, head, label, desc, bibl, p, ab
+as part of a listPlace
+
+geonames 
+%------------------------------------------------------------------------------
+\begin{frame}{Blocks}
+  Three different block environments are pre-defined and may be styled with an
+  optional background color.
+
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+
+      \metroset{block=fill}
+
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+  \end{columns}
+\end{frame}
+tei:place
+placeName, geogName 
+settlement, bloc, region, country, district 
+location, climate, population, relation, event, terrain 
+state, trait
+note, head, label, desc, bibl, p, ab as part of a listPlace
+
+geopolitical description
+settlement, bloc, region, country, district
+Geographical description
+geo
+Relativ to another place
+offset, measure
+
+\begin{xmlcode}
+<place type="building">
+ <placeName>Brasserie Georges</placeName>
+ <location>
+  <country key="FR"/>
+  <settlement type="city">Lyon</settlement>
+  <district type="arrondissement">Perrache</district>
+  <placeName type="street">Rue de la Charité</placeName>
+ </location>
+</place>
+
+<place>
+  <placeName>Abbey Dore</placeName>
+  <location>
+    <geo>51.969604 -2.893146</geo>
+  </location>
+</place>
+
+<place type="imaginary">
+ <placeName>Atlantis</placeName>
+ <location>
+  <offset>beyond</offset>
+  <placeName>The Pillars of <persName>Hercules</persName>
+  </placeName>
+ </location>
+</place>
+\end{xmlcode}
+
+
+tei:org
+
+every kind of organisation
+described by orgName, desc, state/trait
+
+tei:term
+
+term: a technical term
+gloss: definition/explanation of something, @target  an refer to the @xml:id of the term explained
+e.g. as a list („terminology“)
+\begin{xmlcode}
+<list>
+  <label><term>Marchfutter</term></label>
+  <item><gloss>Eine Abgabe in der Steiermark im 15. Jahrhundert</gloss></item>
+</list>
+\end{xmlcode}
+
+Linked Open Data (LOD)
+
+database like network of ressources
+e.g. dbpedia, Virtual International Authority File (VIAF), geonames \dots
+
+%------------------------------------------------------------------------------
+\begin{frame}[fragile]{Blocks}
+TEST
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{itemize}
+          \item info
+      \end{itemize}
+      
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+      \begin{greysql}
+SELECT DISTINCT column_list
+FROM table_list
+    JOIN table ON join_condition
+WHERE row_filter
+ORDER BY column
+LIMIT count OFFSET offset
+GROUP BY column
+HAVING group_filter;
+\end{greysql}
+
+  \end{columns}
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+\begin{frame}{Blocks}
+  Three different block environments are pre-defined and may be styled with an
+  optional background color.
+
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+
+      \metroset{block=fill}
+
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+  \end{columns}
+\end{frame}
+
+
+
+
+%---------------------------------------------
+\section{Regex/ Annotationspraxis}
+\begin{frame}[allowframebreaks]{Hands-On gezielte Annotation}
+\bg{alert}{white}{= Annotation mit dem Ziel der Erschließung}\\ 
+\bg{w3schools}{white}{Vorgehensweise}
+\smallskip 
+
+ \footnotesize
+\begin{enumerate}
+    \item Forschungsfrage formulieren
+    \item Überlegen, welche Daten zur Beantwortung benötigt werden
+    \item Begründen, warum und wie diese Daten zur Beantwortung beitragen
+    \item gezielt zu erschließende Quelle / Objekt (kann auch ein Gegenstand sein!) annotieren
+\end{enumerate}
+
+Dazu ist (wahrscheinlich) \bg{alert}{white}{Vorbereitung} notwendig:\\[0.5em]
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Beschaffung der Daten}
+
+\begin{enumerate}
+    \item Woher kann ich die Daten bekommen? 
+    \item Online in welcher Form (xml, html, txt, etc.) verfügbar?
+    \item Falls ja: darf ich die Daten (für meine Zwecke) überhaupt verwenden? (Urheberrecht, Creative Commons, etc.)
+    \item selbst digitalisieren / transkribieren
+    \item gezielt zu erschließende Quelle / Objekt (kann auch ein Gegenstand sein!) annotieren
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Sog. Pre-Processing}
+
+ Kann je nach Daten und Bedürfnisse ganz unterschiedlich aussehen. \\
+ 
+\begin{enumerate}
+    \item `Junk' / `Noise', der entfernt werden soll? (Zeichen aus dem HTML, kaputtes Encoding, irrelevante Daten, etc.)
+    \item Basis-Kodierung könnte man unter Pre-Processing fassen (Überschriften, Absätze)
+    \item Können Tätigkeiten automatisiert werden? Gibt es die Ressource schon online im richtigen Format?
+    \item Aber Achtung, übermotiviertes Automatisieren kann in Mehrarbeit enden!
+    \item Überprüfen, ob die `Vereinfachung' tatsächlich das gewünschte Ergebnis erzielt!
+    \item Falls Online-Markup nicht passt: Evtl. ist es mit einem plain text Dokument im Endeffekt schneller. 
+    \item Advanced: Automatisierung / Pre-Processing mit Python, XSLT, etc.
+\end{enumerate}
+
+\end{frame}
+%----------------------------------
+
+\begin{frame}[allowframebreaks]{Annotation leichter machen}
+\footnotesize
+\begin{enumerate}
+    \item beim Annotieren nicht `lesen', für das Grobe nur überfliegen
+    \item erst das Grobe (ohne zu lesen), dann eine 2. Runde für Details (\emph{Named Entities}, etc.)
+    \item Keyboard-Shortcuts nutzen: per Tastatur navigieren lernen statt `herumklicken'
+    \item Suchen \& Ersetzen für häufige Orte / Namen
+    \item Patterns automatisch finden (RegEx, Suchen/Ersetzen)
+    \item vielleicht gibt es die Daten schon online??
+\end{enumerate}
+\smallskip
+
+Wir könnten alles in Word mit Formatvorlagen annotieren und per OxGarage umwandeln. Allerdings muss dort (bis auf Absätze) alles händisch markiert werden. Suchen \& Ersetzen wäre da wohl effizienter.
+
+\begin{enumerate}
+    \item \textbf{Basiskodierung I:} Daten aus Wikisource rauskopieren in Word. Alles markieren (Strg+A) und auf Formatvorlage `Standard' klicken. Testen, ob es wirklich übernommen wurde. Im Word dann mit ``Überschrift''-Formatvorlage die Kapitelüberschriften markieren. Würde auch mit Markdown schnell gehen. 
+    (z.B. jedes `Chapter' durch `\# Chapter' ersetzen $\to$ in OxGarage zu TEI machen lassen, dann sind die \textbf{heads} schon drin (Achtung, dazu muss man das \texttt{.txt} in eine \texttt{.md}-Endung umbenennen, sonst wird es nicht akzeptiert.
+    \item \textbf{Transformation zu XML} / TEI mithilfe von \href{http://oxgarage.tei-c.org}{OxGarage}.
+    \item \textbf{Tipp:} Wenn ein Schema (z.B. TEI) mit dem Dokument verbunden ist, einfach öffnende Spitzklammer an eine Stelle schreiben und Oxygen bietet an, was dort stehen könnte (z.B. beim Header nützlich). Geht auch für Attribute, aber geht natürlich nur, wenn man mit dem Internet verbunden ist. Wenn man z.B. <p schreibt, dann zeigt es alle hier möglichen Elementnamen beginnend mit p, falls man schon ungefähr weiß, dass man z.B. eine Person sucht, die so benannt sein könnte.
+    \item \textbf{Suchen \& Ersetzen nutzen,} um häufige Orte und Personennamen `mit einem Schlag' zu annotieren. Sicherstellen, dass man nicht Dinge markiert, die keine eigentlichen Treffer waren (\emph{false positives}): Zunächst ein paar Ergebnisse durchklicken, bevor man `Alles ersetzen' macht. Vor Namen sicherheitshalber ein Leerzeichen setzen, damit nicht gleiche Wortteile mitgenommen werden (z.B. bei Mina durchaus möglich). Wenn Leute mit Vor- und Nachnamen vorkommen, immer zuerst die längstmögliche Version suchen, dann z.B. auch den Vornamen ohne Nachnamen. Allgemein, auch wenn man Suchen \& Ersetzen zum Bereinigen unerwünschter Attribute verwendet, immer zuerst das längstmögliche, dann die kürzeren Varianten. Beim `Bereinigen' schauen, ob man die unerwünschten Attribute nicht eh vielleicht brauchen kann (\emph{<hi style="bold">} könnte z.B. \emph{<hi rend="Name">} werden). (Für RegEx-Experten: XSLT / oXygen unterstützt nicht alle RegEx, die ihr evtl. aus anderen Programmiersprachen kennt -- hier sorgfältig googeln: Falls es den Eindruck macht, dass der gewünschte Ausdruck nicht explizit irgendwo als XSLT-tauglich ausgewiesen wird, davon ausgehen, dass es ihn nicht gibt. Mangelnde Bereitschaft zur Akzeptanz dieses Umstands kann in stundenlanger erfolgloser Fehlersuche enden \faSmileO )
+    \item Text durchgehen auf \emph{Named Entities} (Namen, Orte), die nicht automatisch gefunden wurden. Per Hand nachziehen.
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Vorgehensweise zur Basiskodierung}
+\footnotesize
+\begin{enumerate}
+    \item Annotation mit Word-Formatvorlagen und OxGarage-Konversion
+    \item XML selbst schreiben mit Tastatur-Shortcuts
+    \item im Internet vor-kodierten Text suchen / aus XHTML transformieren, etc. (funktionierte hier nicht so gut)
+\end{enumerate}
+\smallskip
+
+\bg{alert}{white}{Dateien}~sinnvolle, aussagekräftige Dateinamen. Keine Leerzeichen in Dateinamen, keine Umlaute. Möglichst plattformunabhängige Dateiformate wählen.
+
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Basis-Kodierung}
+
+\begin{enumerate}
+    \item \textbf{Überschriften} (\emph{head}) und \textbf{Paragraphen} (\emph{p})
+    \item händisch erstellter, \textbf{minimaler TEI-Header}
+    \item \textbf{Personennamen, Orte} (mindestens direkte Verwendung, Verweise wie `er' optional)
+    \item \textbf{direkte Reden mit eindeutigem Attribut} (\emph{listPerson} im \emph{teiHeader}), das angibt, wer hier spricht
+    \item \textbf{Briefe} (ganzer Brief, als Unter-Verschachtelung: Absender, Empfänger, Ort, Datum nach TEI)
+\end{enumerate}
+
+\bg{alert}{white}{TEI-Header}
+\begin{enumerate}
+    \item \textbf{fileDesc} ist verpflichtend, hier einfach die Autorschaft (ihr selbst und z.B. Bram Stoker) klarstellen und ggf. erklären
+    \item dann in der \textbf{profileDesc}: \textbf{listPerson} $\to$ \textbf{person} (mit Attribut xml:id="Mina" oder so)  $\to$ persName, evtl mit Untergliederung darunter nochmals in Vor-, Nach- und Spitzname. Für alle Hauptfiguren. TEI-Konventionen: \href{http://www.tei-c.org/release/doc/tei-p5-doc/de/html/examples-addName.html}{addName} type="nick" für Spitznamen, \textbf{roleName} für Graf, Doktor etc.
+    \item im Text Personen dann mit \texttt{<persName ref="\#Mina">} referenzieren (selbes entsprechend bei Orten)
+    \item Liste der wichtigsten Orte: \textbf{profileDesc} $\to$ \textbf{settingDesc} $\to$ \textbf{listPlace}: \texttt{<place xml:id="London"  ana="http://www.geonames.org/2643741/"> <placeName> London} etc.
+    \item im Text: \texttt{<placeName ref="\#London">London</placeName>}
+\end{enumerate}
+
+\end{frame}
+
+%-----------------------------------------------------
+%
+
+
+\begin{frame}[standout]
+  \alert{Und Action!} \normalsize
+ Erstellt einen TEI-Header für Euer Dokument.
+\end{frame}
+
+
+
+
+
+
+\href{http://regexr.com}{RegExr.com}: vorher testen (potentielle Probleme z.B. = entweder alles oder nichts finden).
+Auch ein RegEx ist ein Modell $\to$ Abstraktion. z.B. \textbf{Jahreszahl finden} \verb|\d{4}|
+\smallskip
+
+\textbf{Ein Wort finden, das auch als Wortteil woanders vorkommen kann}, z.B. `bat': Suche von \verb|bat(\W)|. D.h. die Zeichenkette beginnt mit `bat' und es folgt ein Nicht-Wortzeiten (also Space, Punkt, Komma, Hyphen, etc.). \verb|\w| gibt ein `Wortzeichen', also Buchstaben, der Ausdruck in Groß jeweils das Gegenteil -- also alles, was durch \verb|\w| \emph{nicht} erfasst wird.
+Das ganze kann man natürlich auch an den Wortanfang noch setzen, um auf Nummer sicher zu gehen: \verb|(\W)bat(\W)|
+\smallskip
+
+Reguläre Ausdrücke (Regular Expressions, Regex) = Muster, die Zeichenketten beschreiben. 
+$\to$ Finden und Bearbeiten von Zeichenfolgen, die auf sie zutreffen.
+
+\begin{frame}[fragile,allowframebreaks]{Reguläre Ausdrücke (RegEX)}
+\footnotesize
+\bg{w3schools}{white}{Vorbereiten}\\
+Als erstes: Ein Leerzeichen markieren und durch ein Leerzeichen ersetzen. Dies verhindert Encoding-Probleme (z.B. Windows hat `geschützte Leerzeichen', die im Hintergrund für den Computer anders aussehen. Diese können unerklärliche Fehler verursachen, daher lieber gleich am Anfang präventiv erledigen und die Fehlerquelle damit ausschließen.
+\medskip
+
+
+\bg{w3schools}{white}{Personen und Orte}\\
+\textbf{Suchen und Ersetzen in Oxygen:} Im OxygenXML-Suchfeld `Reguläre Ausdrücke' und alles drunter anklicken.
+
+Im oberen Suche-Feld:
+\begin{verbatim}
+    ( Mina|Mina Murray|Mina Harker)
+\end{verbatim}
+
+Im Ersetzen-Feld greifen wir auf die Inhalte aus der Klammer folgendermaßen zu (mit \$, das durchnummeriert wird, denn man kann mehrere Ausdrücke klammern und somit unterschiedlich weriterverarbeiten (z.B. Vor- und Nachname bereits richtig kodieren mit (Mina)(Murray|Harker), der Vorname ist dann in \$1, der Nachname in \$2 wiederzufinden):
+\begin{verbatim}
+    <persName ref="#Mina">$1</persName>
+\end{verbatim}
+
+Selbes für Ort:
+\begin{verbatim}
+    <placeName ref="#London">$1</placeName>
+\end{verbatim}
+
+Hier nicht vergessen, dass im Text immer vor der id der \# sein muss, sonst kommt vom TEI-Schema ein Fehler gemeldet.
+
+\medskip
+
+\bg{w3schools}{white}{Kapitelstruktur}\\
+Im oberen Suche-Feld:
+\begin{verbatim}
+    <p>(Letter|Chapter) (.*?)</p>
+\end{verbatim}
+
+Im Ersetzen-Feld greifen wir auf die Inhalte aus der Klammer folgendermaßen zu (mit \$):
+\begin{verbatim}
+    <head>$1 $2</head>
+\end{verbatim}
+
+Hinterher muss man um die heads (also immer beginnend vor head markieren bis kurz vor dem folgenden head, d.h. Ende Kapitel) markieren, CTRL+E und ein div-Element erstellen für jedes Kapitel. Sonst nicht TEI-konform (gäbe auch komplexe Abfragen, mit denen dies automatisiert werden könnte).
+\medskip
+
+\bg{w3schools}{white}{Unerwünschte Zeilenumbrüche loswerden}\\
+Z.B. bei den Projekt-Gutenberg-txt-Dateien ist es uns passiert, dass unerwünschte Zeilenumbrüche im Text waren, die ohne RegEx nicht so einfach zu entfernen waren. Der RegEx, der das Problem löst, schaut folgendermaßen aus:
+\begin{verbatim}
+    (\w+)(\n)(\w+)
+\end{verbatim}
+D.h. er sucht ein oder mehrere Wörter, wo genau 1 Zeilenumbrucht (\textbackslash n = newline) dazwischen steht. Die Logik dahinter: richtige Absätze werden durch mehrere Zeilenumbrüche abgebildet (bei einer Leerzeile zw. zwei Abschnitten finden sich mind. 2 newline-Zeichen, also 1x am Ende der letzten Zeile und 1x nach der Leerzeile, dort sind aber keine Wort-Zeichen dazwischen. Wir löschen also tatsächlich nur unerwünschte / überflüssige  Umbrüche. Hier aber auch sichergehen, dass der Text tatsächlich so `funktioniert' -- wenn keine Leerzeilen zwischen Abschnitten sind, so funktioniert das nicht!
+
+\end{frame}
+%---------------------------------------------------
+
+
+
+\begin{frame}[allowframebreaks]{Literatur}
+
+\AtNextBibliography{\footnotesize}
+\printbibliography  
+\end{frame}

@@ -1,0 +1,152 @@
+
+
+\section{Annotating with XML markup}
+
+
+%-----------------------------------------------------
+\begin{frame}{XML: eXtensible Markup Language}
+\begin{columns}
+\column{0.35\textwidth}
+\begin{itemize}\small 
+    \item \href{https://www.w3schools.com/xml/default.asp}{W3Schools Tutorial} 
+    \item {paradigm of the separation of form and content} 
+    \item {XML is a metalanguage}
+\end{itemize}
+\bgupper{w3schools}{black}{.xml} \\
+
+\begin{itemize}\scriptsize 
+    \item {RSS}, SOAP, XAML 
+    \item {MathML}, {GraphML}~ 
+    \item {XHTML}~
+    \item {RDF}~
+    \item {KML}~ 
+    \item {Scalable Vector Graphics (SVG)}
+\end{itemize}
+
+\column{0.65\textwidth}
+\metroset{block=fill}
+\begin{block}{}
+\begin{quote}
+    \textbf{Extensible Markup Language (XML)} is a \textbf{markup language} and file format for storing, transmitting, and reconstructing arbitrary data. It defines a \textbf{set of rules for encoding documents} in a format that is \textbf{both human-readable and machine-readable.}  (\href{https://en.wikipedia.org/wiki/XML}{Wikipedia})
+\end{quote}
+\end{block}
+\end{columns}
+
+\end{frame}
+
+
+%----------------------------------
+
+\begin{frame}[fragile]{XML rules}
+\begin{columns}
+\column{0.42\textwidth}
+\small
+XML can be checked for \textbf{validity} (validation if it complies with a standard) and \textbf{well-formedness} (following the rules of XML) $\to$ will only be parsed if well-formed. Thus: \alert{Heed thy error messages!}\smallskip
+
+There are rules on how elements can be named (you can look them up if relevant or will get informed by an error message). 
+
+\bigskip
+
+%\includegraphics[width=0.1\textwidth]{doppelkeks.jpg}~\bg{alert}{white}{Doppelkeks} ~ ~\bg{alert}{white}{russische Puppe}~\includegraphics[width=0.15\textwidth]{matroschka.jpg}\vspace{1em}
+
+\mycommand{<key>value</key>}{XML as a key value notation} 
+\column{0.55\textwidth}\footnotesize
+\metroset{block=fill}
+\begin{block}{Rules}
+\begin{itemize}
+    \item Hierarchical nesting below the root
+    \item exactly one root element, i.e. one out-most russion doll
+    \item start and end tag 
+    \item tag names are case-sensitive (!) 
+    \item empty elements allowed (\& can be shortened) 
+\end{itemize}
+\end{block}
+\bigskip 
+
+\begin{block}{Minimal example}
+\begin{xmlcode}
+<?xml version="1.0" ?>
+<root>
+  <element attribute="value">
+    content
+  </element>
+  <!-- comment -->
+</root>
+\end{xmlcode}
+\end{block}
+\end{columns}
+
+\end{frame}
+
+
+%----------------------------------
+
+
+\begin{frame}[fragile,allowframebreaks]{XML rules}
+
+\small
+
+\bg{w3schools}{white}{Prolog}~ \\
+\mycommand{<xml version="1.0" encoding="utf-8">}{XML declaration}
+\mycommand{<?xsl-stylesheet type="text/xsl" href="my.xsl"?>}{processing instructions  (optional)}
+\bigskip
+
+you can include document models (optional) \\
+DTD, XML Schema, RelaxNG, Schematron 
+\bigskip
+
+\bg{w3schools}{white}{entities}~ `protected' characters that have a meta meaning in XML like: \\
+\mycommand{&lt;}{<}
+\mycommand{&gt;}{>}
+\mycommand{&amp;}{\&}
+
+
+\end{frame}
+
+
+%-----------------
+\begin{frame}{XML family and vocabularies}
+\begin{columns}
+\column{0.45\textwidth}
+\footnotesize
+\bg{w3schools}{white}{XML}~structured description of data \\
+\bg{w3schools}{white}{XPath}~navigating xml documents \\
+\bg{w3schools}{white}{XML Schema}~strict data model \\
+\bg{w3schools}{white}{XSL}~Extensible Stylesheet Language  \\
+\bg{w3schools}{white}{XSLT}~XSL-Transformations, i.e. transforming XML documents  \\
+\bg{w3schools}{white}{XSL-FO}~ formatted output (e.g. print) \\
+\bg{w3schools}{white}{XQuery}~query language for XML databases \\
+\bg{w3schools}{white}{and more}~
+\column{0.45\textwidth}
+\metroset{block=fill}
+\begin{block}{}
+\footnotesize
+\begin{itemize}
+    \item \textbf{(X)HTML} Hypertext Markup Language 
+    \item \textbf{EAD} Encoded Archival Description 
+    \item \textbf{TEI} Text Encoding Initiative 
+    \item \textbf{CEI} Charters Encoding Initiative 
+    \item \textbf{MEI} Music Encoding Initiative 
+    \item \textbf{LIDO} Lightweight Information Describing Objects (describing museum or collection objects)
+    \item \textbf{SVG} Scalable Vector Graphics 
+    \item \textbf{KML} Keyhole Markup Language (geography)
+    \item \textbf{MathML} 
+    \item \textbf{CML} Chemical Markup Language, \dots
+\end{itemize}
+\end{block}
+\end{columns}
+
+
+\end{frame}
+
+
+%------------------------------------------------------------------------------
+
+\begin{frame}[standout]
+  \alert{Practice!} \\
+  \normalsize
+  Open a new XML document in your editor (Oxygen). \\
+  Create new elements and find 3 ways to break it so that you get an error. \\
+  Then fix the error.
+
+\end{frame}

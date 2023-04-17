@@ -1,0 +1,102 @@
+
+
+\begin{frame}[fragile]{Keyboard Shortcuts}
+    
+\begin{itemize}
+    \item Repetitive tasks are computer tasks
+    \item \textbf{Oxygen:} CTRL-F $\to$ select „regular expression“
+    \item Mark up all words
+    \begin{enumerate}
+        \item Search for: \verb|\b(\w+)\b|
+        \item Replace with \verb|<w>$1</w>|
+    \end{enumerate}
+    \item Mark up all lines
+    \begin{enumerate}
+        \item Search for \verb|\s{20}([\S].*?)\n|
+        \item Replace with \verb|<l>$1</l>\n|
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+
+%----------------------------------------------
+
+\begin{frame}{Regular expressions (RegEx)}
+ \begin{multibox}{2} % Anzahl der Boxen in einer Reihe angeben
+\begin{subbox}{subbox}{keyboard shortcuts}\footnotesize
+
+\mycommand{CTRL+C}{copy}
+\mycommand{CTRL+Z}{undo}
+\mycommand{CTRL+Y}{redo}
+\mycommand{CTRL+A}{all}
+\mycommand{CTRL+S}{save}
+
+\mycommand{Alt+Tab}{jump between windows}
+\mycommand{CTRL+Tab}{jump between tabs}
+\mycommand{F5}{Browser-Refresh}
+
+\end{subbox}
+\begin{subbox}{customcolor}{keyboard shortcuts}\footnotesize
+
+\mycommand{CTRL+arrow}{jump-navigate}
+\mycommand{CTRL+SHIFT+arrow}{jump-markup)}
+\mycommand{CTRL+SHIFT+e}{new element in (<oXygen/>)}
+
+\end{subbox}
+\end{multibox}
+\end{frame}
+
+
+%---------------------------------------------
+
+
+\begin{frame}[fragile,allowframebreaks]{RegEx}
+\footnotesize
+
+
+\begin{multibox}{2} % Anzahl der Boxen in einer Reihe angeben
+\begin{subbox}{subbox}{put afterwards}\footnotesize
+
+\mycommand{nothing}{exactly 1x}
+\mycommand{?}{1x or zero}
+\mycommand{*}{as often as you want}
+\mycommand{+}{at least 1x}
+\mycommand{{n}}{n-times}
+
+\end{subbox}
+\begin{subbox}{customcolor}{selection}\footnotesize
+
+\mycommand{.}{any character}
+
+\mycommand{[abc]}{choice of chars}
+\mycommand{[a-z][0-9]}{digital and char choice}
+\mycommand{\n}{newline}
+
+\end{subbox}
+\end{multibox}
+
+%---------------------------------------------
+\begin{multibox}{2} % Anzahl der Boxen in einer Reihe angeben
+\begin{subbox}{subbox}{Grouping}\footnotesize
+
+\mycommand{()}{to group, to access: (\$1)}
+\mycommand{(.*?)}{anything (non-greedy)}
+
+
+\mycommand{^}{negates the following}
+\mycommand{^}{start of string}
+\mycommand{\$}{end of string}
+\mycommand{\\}{escape sequence}
+\mycommand{|}{or pipe}
+\end{subbox}
+\begin{subbox}{subbox}{RegEx}\footnotesize
+\mycommand{\s}{\emph{space}: space, tab, newline}
+\mycommand{\d}{ (\emph{digit}}
+\mycommand{\w}{word (=letter,nr,underscore}
+\mycommand{\D \W \S}{the opposite as in lowercase}
+
+\end{subbox}
+\end{multibox}
+
+\end{frame}
+
+

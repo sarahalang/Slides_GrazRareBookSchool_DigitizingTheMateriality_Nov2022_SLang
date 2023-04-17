@@ -1,0 +1,77 @@
+\documentclass[10pt]{beamer}
+\input{CONFIG.tex}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem} % for strikethrough
+
+
+\begin{document}
+%------------------------------------------------------------------------------
+% FRONT
+%------------------------------------------------------------------------------
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/kfu-zim-slides.png}}
+\frame{\titlepage}
+}
+%\frame{\titlepage}
+\setcounter{tocdepth}{1}
+%------------------------------------------------------------------------------
+\begin{frame}{Overview}%\scriptsize
+  \setbeamertemplate{section in toc}[sections numbered]
+  \begin{small}
+  \begin{multicols}{2}\tableofcontents\end{multicols}
+  % on toc formatting:
+  % https://tex.stackexchange.com/questions/26929/two-column-beamer-toc-with-control-over-the-breaking-point
+  \end{small}
+\end{frame}
+%------------------------------------------------------------------------------
+
+\metroset{block=fill}
+%\input{einheiten/_formalia}
+
+%------------------------------------------------------------------------------
+% MAIN
+%------------------------------------------------------------------------------
+
+\input{einheiten/_intro-workshop.tex}
+
+\input{einheiten/modelling-theory.tex}
+
+% Teaser: Why are we here? General terms: digital edition and archive
+\input{einheiten/digital-editing}\input{einheiten/digital-archives}
+\input{einheiten/rbs-examples.tex}
+
+% lead into XML and TEI
+\input{einheiten/xml-intro}
+\input{einheiten/tei-publication-solutions}
+\input{einheiten/xml-tei-intro}
+
+\input{einheiten/transkribus}
+\input{einheiten/tei-for-digital-editing}
+
+%\input{einheiten/named-entities}\input{einheiten/regex-annotation}
+
+% Practical annotation
+%\input{einheiten/annotation}\input{einheiten/datatypes-metadata-standards}
+%\input{einheiten/regex-annotation}
+
+
+% Relevant technologies introduction
+%\input{einheiten/html-bootstrap}
+%\input{einheiten/latex-reledmac}
+
+% get to XPath and XSLT
+%\input{einheiten/xpath}
+%\input{einheiten/xslt}
+
+
+%TODO in the future: Advanced XSLT for-each group, param, call template, variables
+%TODO maybe: Primar Schemata
+%TODO see leftover-text.tex
+
+%------------------------------------------------------------------------------
+% BACKMATTER
+%------------------------------------------------------------------------------
+\frame[allowframebreaks]{\AtNextBibliography{\footnotesize}\printbibliography}
+
+\end{document}
